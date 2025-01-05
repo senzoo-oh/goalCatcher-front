@@ -9,13 +9,13 @@ const LoginScreen = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleLogin = () => {
-    if (email && password) {
-      login(); // 로그인 상태 변경
-    } else {
-      alert('이메일과 비밀번호를 입력하세요.');
-    }
-  };
+const handleLogin = () => {
+  if (email && password) {
+    login();
+  } else {
+    alert('이메일과 비밀번호를 입력하세요.');
+  }
+};
 
   return (
     <View style={styles.container}>

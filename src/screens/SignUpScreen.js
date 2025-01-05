@@ -1,16 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const SignUpScreen = () => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [nickname, setNickname] = useState('');
+
+    const handleSignUp = () => {
+      if (email && password && nickname) {
+        alert('회원가입이 완료되었습니다');
+      } else {
+        alert('모든 정보를 입력하세요');
+      }
+    };
+
     return (
       <View style={styles.container}>
         <Text style={styles.title}>회원가입</Text>
 
-        <TextInput style={styles.input} placeholder="이메일" />
-        <TextInput style={styles.input} placeholder="닉네임" />
-        <TextInput style={styles.input} placeholder="비밀번호" secureTextEntry />
+        <TextInput 
+          style={styles.input} 
+          placeholder="이메일"
+          value={email}
+          onChangeText={setEmail}
+          />
+
+        <TextInput 
+          style={styles.input} 
+          placeholder="닉네임"
+          value={nickname}
+          onChangeText={setNickname}
+          />
+
+        <TextInput 
+          style={styles.input} 
+          placeholder="비밀번호"
+          secureTextEntry
+          value={password}
+          onChangeText={setPassword}
+          />
         
-        <TouchableOpacity style={styles.signUpButton}>
+        <TouchableOpacity style={styles.signUpButton} onPress={handleSignUp}>
           <Text style={styles.buttonText}>회원가입</Text>
         </TouchableOpacity>
       </View>
@@ -32,6 +63,7 @@ const SignUpScreen = () => {
       marginBottom: 20,
     },
     input: {
+      width: 300,
       borderWidth: 1,
       borderColor: '#ccc',
       borderRadius: 8,

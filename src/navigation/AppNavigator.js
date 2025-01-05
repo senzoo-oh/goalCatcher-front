@@ -27,6 +27,7 @@ const AppNavigator = () => {
                 }
                 <Stack.Screen name="SignUp" component={SignUpScreen} />
                 <Stack.Screen name="SetGoal" component={GoalSettingScreen} />
+                <Stack.Screen name="MyPage" component={MyPageScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );
